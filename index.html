@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="author" content="Nhữ Duy Anh Minh; Nguyễn Vũ Tuấn Phong">
+  <title>Gravity Falls · Cipher Lab</title>
+  <meta name="description" content="Phòng lab mật mã tương tác: Caesar, Atbash, A1Z26, Vigenère và Bill Cipher. Chạy thuật toán từng bước, thử mã nguồn và phân tích bản mã. Interactive bilingual cryptography lab.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234f46e5'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='monospace' font-size='34' font-weight='bold' fill='white'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/tailwind.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="engine.js"></script>
+  <script defer src="content.js"></script>
+  <script defer src="examples.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body class="bg-slate-100 text-slate-900">
+  <header class="app-header">
+    <a class="identity" href="#" aria-label="Gravity Falls Cipher Lab"><span class="mark">GF</span><span><strong>GRAVITY FALLS</strong><small>CIPHER LAB</small></span></a>
+    <div class="header-actions">
+      <span class="lab-label" id="lab-label">PHÒNG THÍ NGHIỆM MẬT MÃ</span>
+      <div class="language-switch" aria-label="Language"><button data-action="language" data-lang="vi" aria-pressed="true">VI</button><button data-action="language" data-lang="en" aria-pressed="false">EN</button></div>
+      <button class="icon-button" id="voice-btn" data-action="voice" aria-pressed="false" title="Thuyết minh">◖♪</button>
+      <button class="icon-button" id="help-btn" data-action="help" title="Trợ giúp">?</button>
+    </div>
+  </header>
+  <main>
+    <div class="course-line"><span id="course-title">Mật mã cổ điển qua những lời nhắn bí mật</span><span id="course-meta">09 phân cảnh · VI / EN</span></div>
+    <section class="player" id="player-container" aria-label="Interactive lesson">
+      <div id="stage-screen" class="stage-screen" aria-live="off"></div>
+      <div class="subtitle-bar" id="subtitles-container"><span class="caption-mark">CC</span><p id="live-subtitle-text"></p><span class="scene-counter" id="scene-counter-badge"></span></div>
+      <div class="media-bar">
+        <div class="scrubber-wrap"><input id="scrubber" type="range" min="0" max="600" step="0.1" value="0" aria-label="Vị trí bài giảng"><div class="timeline-marks" id="timeline-marks"></div></div>
+        <div class="media-controls"><div class="media-left"><button class="play-button" id="play-btn" data-action="play">▶</button><button data-action="seek" data-delta="-5">−5s</button><button data-action="seek" data-delta="5">+5s</button><span class="time-code" id="time-code">00:00 / 10:00</span></div><span class="current-chapter" id="current-chapter"></span><div class="media-right"><select id="speed" aria-label="Tốc độ phát"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1.0×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2.0×</option></select><button data-action="captions" id="cc-btn" aria-pressed="true">CC</button><button data-action="fullscreen" id="fs-btn">⛶</button></div></div>
+      </div>
+    </section>
+    <nav class="chapter-chips" id="chapters-chips-bar" aria-label="Các phân cảnh"></nav>
+    <div class="study-cards" id="study-cards"></div>
+    <div class="credits"><span id="credits-label">NGƯỜI THỰC HIỆN</span><strong>Nhữ Duy Anh Minh</strong><span class="credits-separator" aria-hidden="true">/</span><strong>Nguyễn Vũ Tuấn Phong</strong></div>
+    <footer><span id="footer-note"></span><button class="text-button" data-action="sources" id="sources-btn">Nguồn & quy ước</button></footer>
+  </main>
+  <dialog id="help-dialog"><div id="help-content"></div><button class="primary" data-action="close-dialog" id="close-dialog">Đóng</button></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript>Vui lòng bật JavaScript để sử dụng phòng lab. Enable JavaScript to use this lab.</noscript>
+</body></html>
